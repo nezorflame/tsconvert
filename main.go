@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+	"strings"
 	"time"
 )
 
@@ -27,7 +28,11 @@ func init() {
 func main() {
 	// validate flags and input
 	timeStr := os.Args[len(os.Args)-1]
-	fmt.Println("Input: ", timeStr)
+	if len(os.Args) == 1 || timeStr == "" || strings.EqualFold(timeStr, "now") {
+		fmt.Println("Using current time")
+		timeStr = time.Now().Format(format)
+	}
+	fmt.Println("Input:", timeStr)
 
 	loc, err := checkInputs(timeStr)
 	if err != nil {
