@@ -18,7 +18,7 @@ var (
 
 func init() {
 	flag.StringVar(&format, "f", time.RFC3339, "Format of the time")
-	flag.StringVar(&location, "l", "", "Location of the time")
+	flag.StringVar(&location, "l", "UTC", "Location of the time")
 	flag.BoolVar(&inUTC, "utc", false, "Use UTC location")
 	flag.BoolVar(&inLocal, "local", false, "Use current user location")
 	flag.Parse()
@@ -27,6 +27,8 @@ func init() {
 func main() {
 	// validate flags and input
 	timeStr := os.Args[len(os.Args)-1]
+	fmt.Println("Input: ", timeStr)
+
 	loc, err := checkInputs(timeStr)
 	if err != nil {
 		fmt.Printf("Unable to validate input: %s", err)
@@ -39,7 +41,7 @@ func main() {
 		// if it's not a number, parse it as time.Time
 		t, err := time.ParseInLocation(format, timeStr, loc)
 		if err != nil {
-			fmt.Println("Unable to validate input: bad time format")
+			fmt.Printf("Unable to parse input: %s", err)
 			os.Exit(1)
 		}
 
