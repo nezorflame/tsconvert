@@ -17,7 +17,11 @@
 # ignore binaries and vendoring
 tsconvert*
 debug*
+bin
 vendor
+
+# ignore Go workspace files
+go.work*
 
 # Unneeded files and folders
 .DS_Store

@@ -10,20 +10,24 @@ on:
     branches: [ "master" ]
 
 jobs:
-
   build:
-    runs-on: ubuntu-latest
+    runs-on: alpine-latest
+    strategy:
+      matrix:
+        go-version: [ '1.13', '1.14', '1.15', '1.16', '1.17', '1.18', '1.19', '1.20', '1.21' ]
     steps:
     - uses: actions/checkout@v3
 
-    - name: Set up Go
+    - name: Setup Go ${{ matrix.go-version }}
       uses: actions/setup-go@v4
       with:
-        go-version: '1.21'
-        check-latest: true
+        go-version: ${{ matrix.go-version }}
         cache: true
 
     - name: Build
+      run: go build -v ./...
+
+    - name: Lint
       run: go build -v ./...
 
     - name: Test

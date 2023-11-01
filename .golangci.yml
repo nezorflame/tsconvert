@@ -1,0 +1,111 @@
+# More info on config here: https://github.com/golangci/golangci-lint#config-file
+run:
+  deadline: 10m
+  issues-exit-code: 1
+  tests: true
+  skip-dirs:
+    - bin
+    - vendor
+    - var
+    - tmp
+    - internal/generated
+
+output:
+  format: colored-line-number
+  print-issued-lines: true
+  print-linter-name: true
+
+linters-settings:
+  gocritic:
+    disabled-checks:
+      - exitAfterDefer
+  goconst:
+    min-len: 2
+    min-occurrences: 2
+  govet:
+    check-shadowing: true
+  revive:
+    rules:
+      # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md#var-naming
+      - name: var-naming
+        disabled: true
+  gomodguard:
+    blocked:
+      modules:
+        - github.com/pkg/errors:
+            recommendations:
+              - errors
+        - github.com/go-errors/errors:
+            recommendations:
+              - errors
+
+  gci:
+    sections:
+      - standard # Standard section: captures all standard packages.
+      - default # Default section: contains all imports that could not be matched to another section type.
+      - prefix(github.com/nezorflame/tsconvert) # Custom section: groups all imports with the specified Prefix.
+      # - blank # Blank section: contains all blank imports. This section is not present unless explicitly enabled.
+      # - dot # Dot section: contains all dot imports. This section is not present unless explicitly enabled.
+    skip-generated: false
+    custom-order: true
+  gofumpt:
+    module-path: github.com/nezorflame/tsconvert
+    extra-rules: true
+
+linters:
+  disable-all: true
+  enable:
+    - errcheck
+    - errorlint
+    - gocheckcompilerdirectives
+    - gochecknoinits
+    - goconst
+    - gocritic
+    - gomodguard
+    - gosec
+    - gosimple
+    - govet
+    - ineffassign
+    - makezero
+    - nilnil
+    - nolintlint
+    - revive
+    - staticcheck
+    - tenv
+    - thelper
+    - tparallel
+    - typecheck
+    - unconvert
+    - unused
+    - usestdlibvars
+    - wastedassign
+    - gci # autofixable
+    - gofumpt # autofixable
+    - misspell # autofixable
+    - whitespace # autofixable
+    # - godox # enable before pushing to avoid TODOs
+
+issues:
+  # List of regexps of issue texts to exclude, empty list by default.
+  # But independently from this option we use default exclude patterns,
+  # it can be disabled by `exclude-use-default: false`. To list all
+  # excluded by default patterns execute `golangci-lint run --help`
+  exclude:
+    # error shadowing is mostly OK
+    - 'shadow: declaration of "err"'
+  # Excluding configuration per-path, per-linter, per-text and per-source
+  exclude-rules:
+    # Exclude some linters from running on tests files.
+    - path: test/.*\.go
+      linters:
+        - gocyclo
+        - errcheck
+        - dupl
+        - gosec
+    - path: _test\.go
+      linters:
+        - gocyclo
+        - errcheck
+        - dupl
+        - gosec
+        - govet
