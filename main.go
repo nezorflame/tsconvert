@@ -18,29 +18,6 @@ var (
 	inLocal  bool
 )
 
-// all existing time formats to go through
-var timeFormats = []string{
-	time.Layout,
-	time.ANSIC,
-	time.UnixDate,
-	time.RubyDate,
-	time.RFC822,
-	time.RFC822Z,
-	time.RFC850,
-	time.RFC1123,
-	time.RFC1123Z,
-	time.RFC3339,
-	time.RFC3339Nano,
-	time.Kitchen,
-	time.Stamp,
-	time.StampMilli,
-	time.StampMicro,
-	time.StampNano,
-	time.DateTime,
-	time.DateOnly,
-	time.TimeOnly,
-}
-
 func init() {
 	flag.StringVar(&format, "f", "", "Format of the time")
 	flag.StringVar(&location, "l", "UTC", "Location of the time")

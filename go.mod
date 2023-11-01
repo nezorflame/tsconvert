@@ -1,3 +1,5 @@
 module github.com/nezorflame/tsconvert
 
-go 1.18
+go 1.13
+
+toolchain go1.21
