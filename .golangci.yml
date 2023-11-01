@@ -58,7 +58,6 @@ linters:
     - errcheck
     - errorlint
     - gocheckcompilerdirectives
-    - gochecknoinits
     - goconst
     - gocritic
     - gomodguard

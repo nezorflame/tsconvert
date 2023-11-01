@@ -1,5 +1,5 @@
-//go:build go1.20
-// +build go1.20
+//go:build go1.18 && !go1.20
+// +build go1.18,!go1.20
 
 package main
 
@@ -22,8 +22,5 @@ var timeFormats = []string{
 	time.StampMilli,
 	time.StampMicro,
 	time.StampNano,
-	time.Layout,   // added in Go 1.18
-	time.DateTime, // added in Go 1.20
-	time.DateOnly,
-	time.TimeOnly,
+	time.Layout, // added in Go 1.18
 }
