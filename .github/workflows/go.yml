@@ -25,6 +25,9 @@ jobs:
         cache: true
         cache-dependency-path: tools/go.sum
 
+    - name: Tools
+      run: make tools
+
     - name: Build
       run: make build
 
