@@ -26,10 +26,7 @@ jobs:
         cache-dependency-path: tools/go.sum
 
     - name: Build
-      run: go build -v ./...
+      run: make build
 
     - name: Lint
-      run: go build -v ./...
-
-    - name: Test
-      run: go test -v ./...
+      run: make lint
