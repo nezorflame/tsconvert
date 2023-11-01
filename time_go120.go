@@ -1,5 +1,4 @@
 //go:build go1.20
-// +build go1.20
 
 package main
 
@@ -7,6 +6,7 @@ import "time"
 
 // all existing time formats to go through
 var timeFormats = []string{
+	time.Layout,
 	time.ANSIC,
 	time.UnixDate,
 	time.RubyDate,
@@ -22,7 +22,6 @@ var timeFormats = []string{
 	time.StampMilli,
 	time.StampMicro,
 	time.StampNano,
-	time.Layout,   // added in Go 1.18
 	time.DateTime, // added in Go 1.20
 	time.DateOnly,
 	time.TimeOnly,

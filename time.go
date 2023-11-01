@@ -1,5 +1,4 @@
-//go:build !go1.18
-// +build !go1.18
+//go:build !go1.20
 
 package main
 
@@ -7,6 +6,7 @@ import "time"
 
 // all existing time formats to go through
 var timeFormats = []string{
+	time.Layout,
 	time.ANSIC,
 	time.UnixDate,
 	time.RubyDate,
