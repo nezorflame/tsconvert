@@ -12,6 +12,7 @@ jobs:
     name: "Tagged Release"
     runs-on: "ubuntu-latest"
     steps:
+      - uses: actions/checkout@v3
       - name: "Build"
         run: make build-all
       - uses: "marvinpinto/action-automatic-releases@latest"
