@@ -12,7 +12,7 @@ jobs:
     name: "Pre Release"
     runs-on: "ubuntu-latest"
     steps:
-      - name: "Build & test"
+      - name: "Build"
         run: make build-all
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:

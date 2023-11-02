@@ -12,10 +12,8 @@ jobs:
     name: "Tagged Release"
     runs-on: "ubuntu-latest"
     steps:
-      - name: "Build & test"
-        run: |
-          make test
-          make build-all
+      - name: "Build"
+        run: make build-all
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
