@@ -1,4 +1,4 @@
-# tsconvert [![go](https://github.com/nezorflame/tsconvert/actions/workflows/go.yml/badge.svg)](<https://github.com/nezorflame/tsconvert/actions/workflows/go.yml>) [![golangci-lint](https://github.com/nezorflame/tsconvert/actions/workflows/golangci-lint.yml/badge.svg)](<https://github.com/nezorflame/tsconvert/actions/workflows/go.yml>) [![Go Report Card](https://goreportcard.com/badge/github.com/nezorflame/tsconvert)](<https://goreportcard.com/report/github.com/nezorflame/tsconvert>)
+# tsconvert [![go](https://github.com/nezorflame/tsconvert/actions/workflows/go.yml/badge.svg)](<https://github.com/nezorflame/tsconvert/actions/workflows/go.yml>) [![golangci-lint](https://github.com/nezorflame/tsconvert/actions/workflows/golangci-lint.yml/badge.svg)](<https://github.com/nezorflame/tsconvert/actions/workflows/golangci-lint.yml>) [![Go Report Card](https://goreportcard.com/badge/github.com/nezorflame/tsconvert)](<https://goreportcard.com/report/github.com/nezorflame/tsconvert>)
 
 Converts Unix timestamp to human-readable form and vice versa.
 
